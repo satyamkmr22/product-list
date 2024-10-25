@@ -3,7 +3,7 @@ const sequelize = require('../config/sequelize');
 
 const Product = sequelize.define('Product', {
   name: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   description: {
@@ -19,7 +19,8 @@ const Product = sequelize.define('Product', {
     allowNull: false,
   },
 }, {
-  tableName: 'products',
+  tableName: 'products_obt',
+  timestamps: false, // Disable createdAt and updatedAt
 });
 
 module.exports = Product;
