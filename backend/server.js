@@ -1,4 +1,3 @@
-const sequelize = require('./config/sequelize');
 const Contact = require('./models/Product');
 const express = require('express');
 const cors = require('cors');
@@ -11,6 +10,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Product Management API');
+});
 app.use('/', productRoutes);
 
 app.use((err, req, res, next) => {
@@ -18,16 +20,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!', error: err.message });
 });
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the Product Management API');
-});
-
-const PORT = process.env.PORT || 5000;
-sequelize.sync({ alter: true }).then(() => {
-  console.log('Database & tables created!');
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-}).catch(err => {
-  console.error('Error syncing database:', err);
-});
+module.exports = app; // Export using CommonJS
