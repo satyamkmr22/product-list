@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts, deleteProduct } from '../api/productApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import '../ProductList.css';
 
 function ProductList({ onEdit }) {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+  const [minQuantity, setMinQuantity] = useState('');
+  const [maxQuantity, setMaxQuantity] = useState('');
+  const [filterOpen, setFilterOpen] = useState(false);
 
   useEffect(() => {
     // Fetch all products initially
@@ -24,21 +31,68 @@ function ProductList({ onEdit }) {
     }
   };
 
-  // Filter products based on search term
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter products based on search term and additional filters
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesMinPrice = minPrice ? product.price >= minPrice : true;
+    const matchesMaxPrice = maxPrice ? product.price <= maxPrice : true;
+    const matchesMinQuantity = minQuantity ? product.quantity >= minQuantity : true;
+    const matchesMaxQuantity = maxQuantity ? product.quantity <= maxQuantity : true;
+
+    return matchesSearch && matchesMinPrice && matchesMaxPrice && matchesMinQuantity && matchesMaxQuantity;
+  });
 
   return (
     <div className="product-list">
       <h2>Product List</h2>
-      <input
-        type="text"
-        placeholder="Search products"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
-      />
+
+      <div className="filter-options">
+        <input
+          type="text"
+          placeholder="Search products"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        <button className="filter-button" onClick={() => setFilterOpen(!filterOpen)}>
+          <FontAwesomeIcon icon={faFilter} /> Filter
+        </button>
+        {filterOpen && (
+          <div className="dropdown">
+            <div>
+              <input
+                type="number"
+                placeholder="Min Price"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+                className="filter-input"
+              />
+              <input
+                type="number"
+                placeholder="Max Price"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+                className="filter-input"
+              />
+              <input
+                type="number"
+                placeholder="Min Quantity"
+                value={minQuantity}
+                onChange={(e) => setMinQuantity(e.target.value)}
+                className="filter-input"
+              />
+              <input
+                type="number"
+                placeholder="Max Quantity"
+                value={maxQuantity}
+                onChange={(e) => setMaxQuantity(e.target.value)}
+                className="filter-input"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
       <ul>
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
