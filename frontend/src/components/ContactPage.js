@@ -26,7 +26,7 @@ const ContactPage = () => {
       image: photo, // Corrected this line
       contact: "+91 76679 67100",
       email: "satyamkmr22@iitk.ac.in",
-      description: "Project Manager with expertise in digital marketing and operations.",
+      description: "Developed Official Website of Antaragni'24",
     }
     // Add more contacts as needed
   ];
