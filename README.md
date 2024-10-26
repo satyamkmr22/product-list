@@ -102,7 +102,7 @@ Ensure the following software is installed on your machine before starting:
 
 After completing the setup, you can access the application:
 
-- **Backend**: The API server runs on `http://localhost:3001`.
+- **Backend**: The API server runs on `http://localhost:5000`.
 - **Frontend**: The user interface is accessible at `http://localhost:3000`.
 - **Hosted Application**:
   - **Frontend (Vercel)**: To be updated soon!..
