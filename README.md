@@ -105,7 +105,7 @@ After completing the setup, you can access the application:
 - **Backend**: The API server runs on `http://localhost:5000`.
 - **Frontend**: The user interface is accessible at `http://localhost:3000`.
 - **Hosted Application**:
-  - **Frontend (Vercel)**: To be updated soon!..
+  - **Frontend (Vercel)**: [Click here for Frontend..](https://product-list-frontend-final.vercel.app/)
   - **Backend (Render)**: To be updated soon!..
 
 ### Basic Features:
