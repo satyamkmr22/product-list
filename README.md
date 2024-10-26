@@ -105,8 +105,8 @@ After completing the setup, you can access the application:
 - **Backend**: The API server runs on `http://localhost:3001`.
 - **Frontend**: The user interface is accessible at `http://localhost:3000`.
 - **Hosted Application**:
-  - **Frontend (Vercel)**: [https://dummy-frontend.vercel.app](https://dummy-frontend.vercel.app)
-  - **Backend (Render)**: [https://dummy-backend.onrender.com](https://dummy-backend.onrender.com)
+  - **Frontend (Vercel)**: To be updated soon!..
+  - **Backend (Render)**: To be updated soon!..
 
 ### Basic Features:
 - **View Products**: See a list of available products with details like name, description, price, and quantity.
