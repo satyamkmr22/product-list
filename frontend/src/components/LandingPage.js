@@ -1,21 +1,25 @@
-// src/components/LandingPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/LandingPage.css'; // Import the CSS file for landing page styles
 import landingImage from '../assets/pm.jpeg'; // Replace with your actual image path
 
-const Navbar = () => (
+export const Navbar = () => (
   <nav className="navbar">
+    <div className="left">
+     <h2> Product Management system</h2>
+    </div>
+    <div className="right">
     <Link to="/">Home</Link>
     <Link to="/products">Products</Link>
     <Link to="/contact">Contact</Link>
+    </div>
   </nav>
 );
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="content">
         <div className="text-section">
           <h1>Welcome to Our <br></br> Product Management System</h1>
@@ -42,4 +46,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LandingPage ;
