@@ -1,7 +1,7 @@
 // src/components/LandingPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../LandingPage.css'; // Import the CSS file for landing page styles
+import '../css/LandingPage.css'; // Import the CSS file for landing page styles
 import landingImage from '../assets/pm.jpeg'; // Replace with your actual image path
 
 const Navbar = () => (

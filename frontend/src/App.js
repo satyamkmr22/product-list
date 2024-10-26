@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import ProductList from './components/ProductList';
 import AddProduct from './components/AddProduct';
 import LandingPage from './components/LandingPage';
-import './App.css';
+import '../src/css/App.css';
 
 function App() {
   const [editingProduct, setEditingProduct] = useState(null);

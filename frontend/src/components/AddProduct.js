@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { addProduct, updateProduct } from '../api/productApi';
-import '../AddProduct.css';
+import '../css/AddProduct.css';
 
 function AddProduct({ editingProduct, onEditComplete }) {
   const [name, setName] = useState('');
